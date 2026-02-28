@@ -1,21 +1,27 @@
 import { useState, useEffect } from "react";
 import getCharacter from "../api/apiRickyAndMorty";
+import Loader from "../Loader/Loader";
 
 export default function CharacterName() {
   const [characterName, setCharacterName] = useState([]);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     const loadName = async () => {
       try {
         const data = await getCharacter();
         setCharacterName(data);
+        setLoader(false);
       } catch (error) {
         console.error("Errore: " + error);
+        return <span>Si è verificato un errore!</span>;
       }
     };
 
     loadName();
   }, []);
+
+  if (loader) return <Loader />;
 
   return (
     <>
