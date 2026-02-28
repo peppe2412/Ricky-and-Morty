@@ -20,7 +20,7 @@ function App() {
     <>
       {characterName.map((character) => {
         return (
-          <div key={character.id}>
+          <div key={character.id} className="text-6xl">
             <ul>
               <li>
                 {character.name}
