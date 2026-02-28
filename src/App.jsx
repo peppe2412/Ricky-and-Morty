@@ -1,15 +1,35 @@
-// import { useState } from "react";
+import { useState, useEffect } from "react";
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
+import axios from "axios";
 import "./App.css";
 
 function App() {
   // const [count, setCount] = useState(0)
 
+  const [characterName, setCharacterName] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://rickandmortyapi.com/api/character")
+      .then((response) => setCharacterName(response.data.results))
+      .catch((error) => console.error("Errore: " + error));
+  }, []);
+
   return (
     <>
-
-
+      {characterName.map((character) => {
+        return (
+          <div key={character.id}>
+            <ul>
+              <li>
+                {character.name}
+                <div>{character.status}</div>
+              </li>
+            </ul>
+          </div>
+        );
+      })}
       {/* <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
