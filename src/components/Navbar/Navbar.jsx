@@ -3,12 +3,12 @@ import { NavLink } from "react-router";
 export default function Navbar() {
   return (
     <>
-      <header>
+      <header className="fixed w-full top-0 z-10">
         <nav className="navbar bg-base-100 shadow-sm">
           <div className="flex-1 p-2">
             <object
-              className="w-32"
-              data="public/ricky and morty.svg"
+              className="w-36"
+              data="/ricky and morty.svg"
               type="image/svg+xml"
             >
               Ricky and Morty

@@ -5,7 +5,9 @@ export default function Layout() {
   return (
     <>
       <Navbar />
-      <Outlet />
+      <main className="py-20">
+        <Outlet />
+      </main>
     </>
   );
 }
