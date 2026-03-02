@@ -1,3 +1,5 @@
+import { NavLink } from "react-router";
+
 export default function Navbar() {
   return (
     <>
@@ -13,22 +15,13 @@ export default function Navbar() {
             </object>
           </div>
           <div className="flex-none">
-            <ul className="menu menu-horizontal px-1">
+            <ul className="px-7 flex gap-4">
               <li>
-                <a>Link</a>
+                <NavLink to={"/"} className="text-xl font-semibold link link-hover">Home</NavLink>
               </li>
+              <div className="bg-gray-700 w-0.5"></div>
               <li>
-                <details>
-                  <summary>Parent</summary>
-                  <ul className="bg-base-100 rounded-t-none p-2">
-                    <li>
-                      <a>Link 1</a>
-                    </li>
-                    <li>
-                      <a>Link 2</a>
-                    </li>
-                  </ul>
-                </details>
+                <NavLink to={"/episodes"} className="text-xl font-semibold link link-hover">Episodi</NavLink>
               </li>
             </ul>
           </div>

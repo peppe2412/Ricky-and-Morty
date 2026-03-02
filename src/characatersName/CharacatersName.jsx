@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import getCharacter from "../api/apiRickyAndMorty";
-import Loader from "../Loader/Loader";
+import Loader from "../components/Loader/Loader";
 
 export default function CharacterName() {
   const [characterName, setCharacterName] = useState([]);

@@ -1,10 +1,11 @@
-import CharacterName from "./characatersName/CharacatersName";
+import { RouterProvider } from "react-router";
+import router from "./routing/Router";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <CharacterName />
+      <RouterProvider router={router} />
     </>
   );
 }
