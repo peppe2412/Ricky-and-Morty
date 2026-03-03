@@ -3,7 +3,7 @@ import { NavLink } from "react-router";
 export default function Navbar() {
   return (
     <>
-      <header className="fixed w-full top-0 z-10">
+      <header>
         <nav className="navbar bg-base-100 shadow-sm">
           <div className="flex-1 p-2">
             <object
@@ -19,7 +19,7 @@ export default function Navbar() {
               <li>
                 <NavLink to={"/"} className="text-xl font-semibold link link-hover">Home</NavLink>
               </li>
-              <div className="bg-gray-700 w-0.5"></div>
+              <div className="bg-gray-700 w-0.5 rotate-10"></div>
               <li>
                 <NavLink to={"/episodes"} className="text-xl font-semibold link link-hover">Episodi</NavLink>
               </li>

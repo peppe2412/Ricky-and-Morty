@@ -30,7 +30,7 @@ export default function Characters() {
     <>
       {characters.map((character) => (
         <Link key={character.id} to={`/character/${character.id}`}>
-          <div className="card card-side bg-base-100 shadow-sm">
+          <div data-aos="fade-right" className="card card-side bg-base-100 shadow-sm">
             <figure>
               <img src={character.image} alt={character.name} />
             </figure>
