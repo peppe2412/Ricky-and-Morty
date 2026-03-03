@@ -21,3 +21,23 @@ export async function getSingleCharacter(id) {
     throw error;
   }
 }
+
+export async function getEpisodes() {
+  try {
+    const response = await axios.get(`${apiUrl}/episode`);
+    return response.data.results;
+  } catch (error) {
+    console.error("Errore: " + error);
+    throw error;
+  }
+}
+
+export async function getSingleEposide(id) {
+  try {
+    const response = await axios.get(`${apiUrl}/episode/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Errore: " + error);
+    throw error;
+  }
+}

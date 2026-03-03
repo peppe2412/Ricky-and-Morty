@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Characters from "../../components/characaters/Characaters";
+import Characters from "../../components/Cards/characaters/Characaters";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
