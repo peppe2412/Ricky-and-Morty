@@ -8,7 +8,7 @@ export default function Navbar() {
   const openSidebar = () => setIsOpen(!isOpen);
   const closeSidebar = () => setIsOpen(false);
 
-  window.addEventListener("resize", closeSidebar)
+  window.addEventListener("resize", closeSidebar);
 
   return (
     <>
@@ -78,7 +78,10 @@ export default function Navbar() {
               </li>
               <div className="bg-gray-700 lg:w-0.5 w-px rotate-10"></div>
               <li>
-                <NavLink className="lg:text-base text-sm font-semibold link link-hover hover:text-rick-and-morty">
+                <NavLink
+                  to={"/locations"}
+                  className="lg:text-base text-sm font-semibold link link-hover hover:text-rick-and-morty"
+                >
                   Locations
                 </NavLink>
               </li>
@@ -139,6 +142,7 @@ export default function Navbar() {
               <li>
                 <NavLink
                   onClick={closeSidebar}
+                  to={"/locations"}
                   className="text-xl font-semibold link link-hover hover:text-rick-and-morty"
                 >
                   Locations
