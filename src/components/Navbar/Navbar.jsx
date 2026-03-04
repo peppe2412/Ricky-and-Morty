@@ -35,10 +35,7 @@ export default function Navbar() {
               </li>
               <div className="bg-gray-700 lg:w-0.5 w-px rotate-10"></div>
               <li>
-                <NavLink
-               
-                  className="lg:text-base text-sm font-semibold link link-hover hover:text-orange-400"
-                >
+                <NavLink className="lg:text-base text-sm font-semibold link link-hover hover:text-orange-400">
                   Locations
                 </NavLink>
               </li>
