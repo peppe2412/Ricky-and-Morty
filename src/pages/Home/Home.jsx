@@ -16,10 +16,8 @@ export default function Home() {
     <>
       <Heading />
 
-      <section className="flex mt-4 justify-center flex-col items-center">
-        <div className="">
-          <Characters />
-        </div>
+      <section className="flex p-16 justify-center">
+        <Characters />
       </section>
     </>
   );

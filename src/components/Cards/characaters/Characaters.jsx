@@ -28,23 +28,28 @@ export default function Characters() {
 
   return (
     <>
-      {characters.map((character) => (
-        <Link key={character.id} to={`/character/${character.id}`}>
-          <div data-aos="fade-right" className="card card-side bg-base-100 shadow-sm">
-            <figure>
-              <img src={character.image} alt={character.name} />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">{character.name}</h2>
-              <small>Status: {character.status}</small>
-              <small>Specie: {character.species}</small>
-              <div className="card-actions justify-end">
+      <div className="grid grid-cols-12">
+        {characters.map((character) => (
+          <Link className="lg:col-span-6 col-span-12 mb-5 px-5" key={character.id} to={`/character/${character.id}`}>
+            <div
+              data-aos="fade-right"
+              className="card shadow-lg card-side bg-base-100 hover:text-orange-400"
+            >
+              <figure>
+                <img src={character.image} alt={character.name} />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">{character.name}</h2>
+                <small>Status: {character.status}</small>
+                <small>Specie: {character.species}</small>
+                {/* <div className="card-actions justify-end">
                 <button className="btn btn-primary">Watch</button>
+              </div> */}
               </div>
             </div>
-          </div>
-        </Link>
-      ))}
+          </Link>
+        ))}
+      </div>
     </>
   );
 }
