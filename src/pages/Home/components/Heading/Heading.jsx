@@ -23,7 +23,7 @@ export default function Heading() {
         }}
       ></div>
       <div className="relative w-full h-full items-center flex justify-center">
-        <h1 className="text-7xl heading-title uppercase">
+        <h1 className="lg:text-7xl text-4xl text-center heading-title uppercase">
           <Typewriter text="Rick and Morty" delay={150} />
         </h1>
       </div>
