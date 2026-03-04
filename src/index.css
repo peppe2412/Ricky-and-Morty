@@ -4,6 +4,10 @@
   themes: all;
 }
 
+@theme{
+  --color-rick-and-morty: #5CAD4A;
+}
+
 body {
   font-family: "Michroma", sans-serif;
 }

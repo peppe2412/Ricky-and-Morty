@@ -19,7 +19,7 @@ export default function Navbar() {
               <li>
                 <NavLink
                   to={"/"}
-                  className="lg:text-base text-sm font-semibold link link-hover hover:text-orange-400"
+                  className="lg:text-base text-sm font-semibold link link-hover hover:text-rick-and-morty"
                 >
                   Home
                 </NavLink>
@@ -28,14 +28,14 @@ export default function Navbar() {
               <li>
                 <NavLink
                   to={"/episodes"}
-                  className="lg:text-base text-sm font-semibold link link-hover hover:text-orange-400"
+                  className="lg:text-base text-sm font-semibold link link-hover hover:text-rick-and-morty"
                 >
                   Episodi
                 </NavLink>
               </li>
               <div className="bg-gray-700 lg:w-0.5 w-px rotate-10"></div>
               <li>
-                <NavLink className="lg:text-base text-sm font-semibold link link-hover hover:text-orange-400">
+                <NavLink className="lg:text-base text-sm font-semibold link link-hover hover:text-rick-and-morty">
                   Locations
                 </NavLink>
               </li>

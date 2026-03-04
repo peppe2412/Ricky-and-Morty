@@ -33,7 +33,7 @@ export default function Characters() {
           <Link className="lg:col-span-6 col-span-12 mb-5 px-5" key={character.id} to={`/character/${character.id}`}>
             <div
               data-aos="fade-right"
-              className="card shadow-lg card-side bg-base-100 hover:text-orange-400"
+              className="card shadow-lg card-side bg-base-100 hover:text-rick-and-morty"
             >
               <figure>
                 <img src={character.image} alt={character.name} />
