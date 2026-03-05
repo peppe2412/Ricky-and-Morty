@@ -1,0 +1,11 @@
+.buttons-filter {
+  border: 1px solid #5cad4a;
+  border-radius: 10px;
+  padding: 5px 30px 5px 30px;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.buttons-filter:hover{
+    background-color: #81ec68;
+}

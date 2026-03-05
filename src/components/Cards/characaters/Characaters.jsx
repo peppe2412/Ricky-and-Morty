@@ -2,16 +2,29 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { getCharacter } from "../../../api/apiRickyAndMorty";
 import Loader from "../../Loader/Loader";
+import "./Characters.css";
 
 export default function Characters() {
   const [characters, setCharacters] = useState([]);
   const [loader, setLoader] = useState(true);
   const [error, setError] = useState(false);
+  const [statusFilter, setStatusFilter] = useState("");
+  const [speciesFilter, setSpeciesFilter] = useState("");
+  const [gendersFilter, setGendersFilter] = useState("");
+
+  const reset = () => {
+    (setStatusFilter(""), setSpeciesFilter(""), setGendersFilter(""));
+  };
 
   useEffect(() => {
     const loadCharacter = async () => {
+      setLoader(true);
       try {
-        const data = await getCharacter();
+        const data = await getCharacter(
+          statusFilter,
+          speciesFilter,
+          gendersFilter,
+        );
         setCharacters(data);
         setLoader(false);
       } catch (error) {
@@ -21,16 +34,99 @@ export default function Characters() {
     };
 
     loadCharacter();
-  }, []);
+  }, [statusFilter, speciesFilter, gendersFilter]);
 
   if (loader) return <Loader />;
   if (error) return <span>Si è verificato un errore!</span>;
 
   return (
     <>
+      <section className="mt-8 p-2 mb-7 flex lg:justify-end justify-center">
+        <div className="dropdown dropdown-hover">
+          <div tabIndex={0} role="button" className="buttons-filter">
+            Filtra
+          </div>
+          <ul
+            tabIndex="-1"
+            className="dropdown-content menu bg-base-100 rounded-box z-1 p-2 shadow-sm w-fit"
+          >
+            <li>
+              {(statusFilter !== "" ||
+                speciesFilter !== "" ||
+                gendersFilter !== "") && (
+                  <button onClick={reset} className="cursor-pointer">
+                    Reset
+                  </button>
+                )}
+            </li>
+            <div>
+              <small className="text-gray-400">Status</small>
+            </div>
+            <li>
+              <button
+                onClick={() => setStatusFilter("alive")}
+                className="cursor-pointer"
+              >
+                Alive
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => setStatusFilter("dead")}
+                className="cursor-pointer"
+              >
+                Dead
+              </button>
+            </li>
+            <div>
+              <small className="text-gray-400">Specie</small>
+            </div>
+            <li>
+              <button
+                onClick={() => setSpeciesFilter("human")}
+                className="cursor-pointer"
+              >
+                Human
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => setSpeciesFilter("alien")}
+                className="cursor-pointer"
+              >
+                Alien
+              </button>
+            </li>
+            <div>
+              <small className="text-gray-400">Gender</small>
+            </div>
+            <li>
+              <button
+                onClick={() => setGendersFilter("male")}
+                className="cursor-pointer"
+              >
+                Maschio
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => setGendersFilter("female")}
+                className="cursor-pointer"
+              >
+                Femmina
+              </button>
+            </li>
+          </ul>
+        </div>
+      </section>
+
       <div className="grid grid-cols-12">
         {characters.map((character) => (
-          <Link className="lg:col-span-6 col-span-12 mb-5 px-5" key={character.id} to={`/character/${character.id}`}>
+          <Link
+            className="lg:col-span-6 col-span-12 mb-5 px-5"
+            key={character.id}
+            to={`/character/${character.id}`}
+          >
             <div
               data-aos="fade-right"
               className="card shadow-lg card-side bg-base-100 hover:text-rick-and-morty"
@@ -42,9 +138,7 @@ export default function Characters() {
                 <h2 className="card-title">{character.name}</h2>
                 <small>Status: {character.status}</small>
                 <small>Specie: {character.species}</small>
-                {/* <div className="card-actions justify-end">
-                <button className="btn btn-primary">Watch</button>
-              </div> */}
+                <small>Genere: {character.gender}</small>
               </div>
             </div>
           </Link>
