@@ -11,9 +11,14 @@ export default function Characters() {
   const [statusFilter, setStatusFilter] = useState("");
   const [speciesFilter, setSpeciesFilter] = useState("");
   const [gendersFilter, setGendersFilter] = useState("");
+  const [viewContent, setViewContent] = useState(4);
 
   const reset = () => {
     (setStatusFilter(""), setSpeciesFilter(""), setGendersFilter(""));
+  };
+
+  const showMore = () => {
+    setViewContent((more) => more + 4);
   };
 
   useEffect(() => {
@@ -54,10 +59,10 @@ export default function Characters() {
               {(statusFilter !== "" ||
                 speciesFilter !== "" ||
                 gendersFilter !== "") && (
-                  <button onClick={reset} className="cursor-pointer">
-                    Reset
-                  </button>
-                )}
+                <button onClick={reset} className="cursor-pointer">
+                  Reset
+                </button>
+              )}
             </li>
             <div>
               <small className="text-gray-400">Status</small>
@@ -121,7 +126,7 @@ export default function Characters() {
       </section>
 
       <div className="grid grid-cols-12">
-        {characters.map((character) => (
+        {characters.slice(0, viewContent).map((character) => (
           <Link
             className="lg:col-span-6 col-span-12 mb-5 px-5"
             key={character.id}
@@ -144,6 +149,27 @@ export default function Characters() {
           </Link>
         ))}
       </div>
+      {viewContent < characters.length && (
+        <div className="flex justify-center py-10">
+          <button className="btn btn-outline btn-ghost" onClick={showMore}>
+            Mostra di più
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="size-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+              />
+            </svg>
+          </button>
+        </div>
+      )}
     </>
   );
 }

@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <Heading />
 
-      <section className="flex lg:p-5 p-4 w-fit justify-center flex-col">
+      <section className="flex lg:p-5 p-4 container justify-center flex-col">
         <Characters />
       </section>
     </>
