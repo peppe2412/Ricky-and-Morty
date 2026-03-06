@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { NavLink } from "react-router";
 import { useState } from "react";
 import "./Navbar.css";
@@ -8,12 +9,15 @@ export default function Navbar() {
   const openSidebar = () => setIsOpen(!isOpen);
   const closeSidebar = () => setIsOpen(false);
 
-  window.addEventListener("resize", closeSidebar);
+  useEffect(() => {
+    window.addEventListener("resize", closeSidebar);
+    return () => window.removeEventListener("resize", closeSidebar);
+  }, []);
 
   return (
     <>
-      <header className="container">
-        <nav className="navbar bg-base-100 shadow-sm">
+      <header className="w-full">
+        <nav className="navbar bg-base-100">
           <div className="flex-1 p-2">
             <object
               className="lg:w-36 w-20"
@@ -94,7 +98,7 @@ export default function Navbar() {
           <div id="overlay" className="bg-black/50 inset-0 z-1 fixed"></div>
         )}
         <aside
-          className={`fixed p-5 w-48 bg-base-100 h-full z-1 lg:hidden top-0 right-0 ${isOpen ? "open" : ""}`}
+          className={`fixed p-5 w-56 bg-base-100 h-full z-1 lg:hidden top-0 right-0 ${isOpen ? "open" : ""}`}
         >
           <div className="flex justify-end">
             <button onClick={closeSidebar}>

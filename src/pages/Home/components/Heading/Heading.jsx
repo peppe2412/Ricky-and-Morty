@@ -3,7 +3,7 @@ import "./Heading.css";
 
 export default function Heading() {
   return (
-    <section className="container relative h-[75vh]">
+    <section className="w-full relative h-[75vh]">
       <div
         className="slide"
         style={{
