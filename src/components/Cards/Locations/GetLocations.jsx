@@ -31,12 +31,12 @@ export default function GetLocations() {
       <div className="grid grid-cols-12">
         {locations.map((location) => (
           <Link
-            className="lg:col-span-6 col-span-12 mb-5 px-5"
+            className="cols"
             key={location.id}
             to={`/location/${location.id}`}
           >
             <div
-              className="card shadow-lg card-side bg-base-100 hover:text-rick-and-morty"
+              className="card shadow-lg card-side border border-black bg-base-100 hover:text-rick-and-morty"
             >
               <div className="card-body">
                 <h2 className="card-title">{location.name}</h2>

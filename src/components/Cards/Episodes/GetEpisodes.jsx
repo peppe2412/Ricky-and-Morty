@@ -29,8 +29,8 @@ export default function GetEpisodes() {
     <>
       <div className="grid grid-cols-12">
         {episodes.map((episode) => (
-          <Link className="lg:col-span-6 col-span-12 mb-5 px-5" key={episode.id} to={`/episode/${episode.id}`}>
-            <div className="card card-side bg-base-100 shadow-lg hover:text-rick-and-morty">
+          <Link className="cols" key={episode.id} to={`/episode/${episode.id}`}>
+            <div className="card w-75 card-side border border-black bg-base-100 shadow-lg hover:text-rick-and-morty">
               <div className="card-body">
                 <h2 className="card-title">{episode.name}</h2>
                 <p>{episode.episode}</p>
