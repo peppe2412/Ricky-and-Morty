@@ -67,3 +67,9 @@ export async function getSingleLocation(id) {
     throw error;
   }
 }
+
+export function getIdUrl(url) {
+  if (!url) return null;
+  const urlSplit = url.split("/");
+  return urlSplit[urlSplit.length - 1];
+};
