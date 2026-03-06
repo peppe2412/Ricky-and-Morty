@@ -47,13 +47,13 @@ export default function Characters() {
   return (
     <>
       <section className="mt-8 p-2 mb-7 flex lg:justify-end justify-center">
-        <div className="dropdown dropdown-hover">
-          <div tabIndex={0} role="button" className="buttons-filter">
+        <div className="dropdown dropdown-hover lg:dropdown-left">
+          <div tabIndex={0} role="button" className="buttons-filter lg:m-1">
             Filtra
           </div>
           <ul
             tabIndex="-1"
-            className="dropdown-content menu bg-base-100 rounded-box z-1 p-2 shadow-sm w-fit"
+            className="dropdown-content menu bg-base-100 lg:w-48 w-fit rounded-box z-1 p-2 shadow-xl"
           >
             <li>
               {(statusFilter !== "" ||
