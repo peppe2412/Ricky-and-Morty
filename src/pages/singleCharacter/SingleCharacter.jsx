@@ -9,7 +9,7 @@ export default function SingleCharacter() {
   const [singleChar, setSingleChar] = useState(null);
   const [loader, setLoader] = useState(true);
   const [error, setError] = useState(false);
-  
+
   useEffect(() => {
     const loadSingleCharacter = async () => {
       try {
@@ -36,12 +36,14 @@ export default function SingleCharacter() {
         <h1 className="lg:text-5xl text-3xl lg:text-left text-center">
           {singleChar.name}
         </h1>
-        <div className="lg:flex md:flex block gap-10 mt-10">
+        <div className="mt-10">
           <img
             className="w-125 shadow-sm rounded-2xl"
             src={singleChar.image}
             alt={singleChar.name}
           />
+        </div>
+        <div className="lg:flex md:flex block gap-10">
           <div className="mt-10">
             <ul className="flex flex-col gap-3 lg:text-lg">
               <li>
@@ -75,6 +77,21 @@ export default function SingleCharacter() {
                 ) : (
                   singleChar.location.name
                 )}
+              </li>
+              <li>
+                <strong>Episodi:</strong>{" "}
+                {singleChar.episode.map((ep) => {
+                  const episodeId = getIdUrl(ep);
+                  return (
+                    <Link
+                      className="text-sky-400 block mb-3 mt-3 underline hover:text-rick-and-morty"
+                      to={`/episode/${episodeId}`}
+                      key={episodeId}
+                    >
+                      Episodio #{episodeId}
+                    </Link>
+                  );
+                })}
               </li>
             </ul>
           </div>

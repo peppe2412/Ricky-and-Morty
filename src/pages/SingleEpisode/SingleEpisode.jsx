@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { getSingleEposide } from "../../api/apiRickyAndMorty";
+import { getIdUrl } from "../../api/apiRickyAndMorty";
 import Loader from "../../components/Loader/Loader";
 
 export default function SingleEpisode() {
@@ -27,7 +28,37 @@ export default function SingleEpisode() {
 
   return (
     <>
-      <h1>{singleEpisode.name}</h1>
+      <section className="mt-5 p-5">
+        <h1 className="lg:text-5xl text-3xl lg:text-left text-center">
+          {singleEpisode.name}
+        </h1>
+        <div className="mt-10">
+          <ul className="flex flex-col gap-3 lg:text-lg">
+            <li>
+              <strong>Episodio:</strong> {singleEpisode.episode}
+            </li>
+            <li>
+              <strong>Data rilascio:</strong> {singleEpisode.air_date}
+            </li>
+            <li>
+              <strong className="block">Personaggi:</strong>
+              {singleEpisode.characters.map((character) => {
+                const characterId = getIdUrl(character);
+
+                return (
+                  <Link
+                    className="text-sky-400 block mb-3 mt-3 underline hover:text-rick-and-morty"
+                    to={`/character/${characterId}`}
+                    key={characterId}
+                  >
+                    Personaggio #{characterId}
+                  </Link>
+                );
+              })}
+            </li>
+          </ul>
+        </div>
+      </section>
     </>
   );
 }
